@@ -1,0 +1,9 @@
+.planets-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing);
+    list-style: none;
+    background-color: #37474f;
+}
