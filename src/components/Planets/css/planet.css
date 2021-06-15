@@ -3,6 +3,7 @@
     justify-content: center;
     flex-wrap: wrap;
     flex-basis: 250px;
+    min-height: 480px;
     margin: var(--spacing);
     padding: var(--spacing);
     border: 2px solid #fff;
