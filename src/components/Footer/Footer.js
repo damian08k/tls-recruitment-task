@@ -1,6 +1,7 @@
 import { useContext } from "react";
 
 import { DataContext } from "../../context/DataContext";
+import { SearchbarContext } from "../../context/SearchbarContext";
 
 import getData from "../../getData";
 
@@ -8,9 +9,14 @@ import "./footer.css";
 
 const Footer = () => {
     const { data, isLoad, setData, setIsLoad } = useContext(DataContext);
+    const { searchValue, setSearchValue } = useContext(SearchbarContext);
 
     const handleChangePage = async URL => {
         await getData(URL, setData, setIsLoad);
+
+        if (searchValue) {
+            setSearchValue("");
+        }
     };
 
     return (
