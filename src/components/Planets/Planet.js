@@ -6,7 +6,9 @@ import "./css/planet.css";
 
 const Planet = ({ dataCollection }) => {
     const dataCondition = dataCollection.hasOwnProperty("results") ? dataCollection.results : dataCollection;
-    const dataResult = dataCondition;
+    const dataResult = dataCondition.sort((firstElement, secondElement) =>
+        firstElement.name.localeCompare(secondElement.name)
+    );
 
     const planetElement = dataResult.map(({ name, rotation_period, climate, gravity, created, url }) => {
         const createdDate = new Date(created);
