@@ -22,8 +22,6 @@ const Planets = ({ API }) => {
         <Planet dataCollection={data} />
     );
 
-    // console.log(searchData);
-
     return <ul className="planets-list">{isLoad ? showAllOrSearchingPlanets : <Loader />}</ul>;
 };
 

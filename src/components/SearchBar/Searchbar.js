@@ -31,7 +31,7 @@ const SearchBar = () => {
         <input
             type="text"
             className="search-bar"
-            placeholder="Type here to search planets by their name"
+            placeholder="Search planets by their name"
             aria-label="Search Planet by name"
             value={searchValue}
             onChange={handleInputChange}
