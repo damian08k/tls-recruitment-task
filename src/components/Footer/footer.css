@@ -23,6 +23,12 @@
     background-color: #fff;
 }
 
+.footer__pagination-button:disabled {
+    background-color: gray;
+    color: black;
+    cursor: not-allowed;
+}
+
 @media (min-width: 280px) {
     .footer__pagination-button {
         padding: calc(var(--spacing) / 1.5) calc(var(--spacing) * 1.5);

@@ -7,7 +7,7 @@ import getData from "../../getData";
 import "./footer.css";
 
 const Footer = () => {
-    const { data, setData, setIsLoad } = useContext(DataContext);
+    const { data, isLoad, setData, setIsLoad } = useContext(DataContext);
 
     const handleChangePage = async URL => {
         await getData(URL, setData, setIsLoad);
@@ -15,10 +15,18 @@ const Footer = () => {
 
     return (
         <footer className="footer">
-            <button className="footer__pagination-button" onClick={() => handleChangePage(data.previous)}>
+            <button
+                disabled={!data.previous || !isLoad}
+                className="footer__pagination-button"
+                onClick={() => handleChangePage(data.previous)}
+            >
                 Prev Page
             </button>
-            <button className="footer__pagination-button" onClick={() => handleChangePage(data.next)}>
+            <button
+                disabled={!data.next || !isLoad}
+                className="footer__pagination-button"
+                onClick={() => handleChangePage(data.next)}
+            >
                 Next Page
             </button>
         </footer>

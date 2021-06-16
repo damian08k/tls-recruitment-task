@@ -1,5 +1,6 @@
 import { useContext } from "react";
 
+import Loader from "../Loader/Loader";
 import Planet from "./Planet";
 
 import useFetch from "../../hooks/useFetch";
@@ -13,7 +14,7 @@ const Planets = ({ API }) => {
 
     useFetch(API);
 
-    return <ul className="planets-list">{isLoad ? <Planet /> : "Loading..."}</ul>;
+    return <ul className="planets-list">{isLoad ? <Planet /> : <Loader />}</ul>;
 };
 
 export default Planets;

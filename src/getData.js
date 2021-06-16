@@ -1,4 +1,5 @@
 const getData = async (API, setData, setIsLoad) => {
+    setIsLoad(false);
     try {
         const response = await fetch(API);
 
