@@ -9,7 +9,9 @@ import "./css/planet.css";
 const Planet = () => {
     const { data } = useContext(DataContext);
 
-    const planetElement = data.map(({ name, rotation_period, climate, gravity, created, url }) => {
+    const dataResult = data.results;
+
+    const planetElement = dataResult.map(({ name, rotation_period, climate, gravity, created, url }) => {
         const createdDate = new Date(created);
         const createDay = createdDate.getDate();
         const createMonth = createdDate.toLocaleString("en-US", { month: "long" });
