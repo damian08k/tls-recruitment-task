@@ -1,15 +1,12 @@
-import React, { useContext } from "react";
-
-import { DataContext } from "../../context/DataContext";
+import React from "react";
 
 import simplePlanet from "../../assets/SimplePlanet.svg";
 
 import "./css/planet.css";
 
-const Planet = () => {
-    const { data } = useContext(DataContext);
-
-    const dataResult = data.results;
+const Planet = ({ dataCollection }) => {
+    const dataCondition = dataCollection.hasOwnProperty("results") ? dataCollection.results : dataCollection;
+    const dataResult = dataCondition;
 
     const planetElement = dataResult.map(({ name, rotation_period, climate, gravity, created, url }) => {
         const createdDate = new Date(created);

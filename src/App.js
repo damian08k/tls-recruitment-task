@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 
 import DataProvider from "./context/DataContext";
+import SearchbarProvider from "./context/SearchbarContext";
 
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
@@ -14,9 +15,11 @@ const App = () => {
         <Fragment>
             <Header />
             <DataProvider>
-                <SearchBar />
-                <Planets API={API} />
-                <Footer />
+                <SearchbarProvider>
+                    <SearchBar />
+                    <Planets API={API} />
+                    <Footer />
+                </SearchbarProvider>
             </DataProvider>
         </Fragment>
     );

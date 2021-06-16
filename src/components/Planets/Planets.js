@@ -3,18 +3,28 @@ import { useContext } from "react";
 import Loader from "../Loader/Loader";
 import Planet from "./Planet";
 
-import useFetch from "../../hooks/useFetch";
-
 import { DataContext } from "../../context/DataContext";
+import { SearchbarContext } from "../../context/SearchbarContext";
+
+import useFetch from "../../hooks/useFetch";
 
 import "./css/planets.css";
 
 const Planets = ({ API }) => {
-    const { isLoad } = useContext(DataContext);
+    const { searchValue, searchData } = useContext(SearchbarContext);
+    const { data, isLoad } = useContext(DataContext);
 
     useFetch(API);
 
-    return <ul className="planets-list">{isLoad ? <Planet /> : <Loader />}</ul>;
+    const showAllOrSearchingPlanets = searchValue ? (
+        <Planet dataCollection={searchData} />
+    ) : (
+        <Planet dataCollection={data} />
+    );
+
+    // console.log(searchData);
+
+    return <ul className="planets-list">{isLoad ? showAllOrSearchingPlanets : <Loader />}</ul>;
 };
 
 export default Planets;
